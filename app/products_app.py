@@ -16,15 +16,10 @@ def auto_incremented_id():
 #
 # READ PRODUCTS FROM FILE
 #
-
 with open(products_csv, "r") as csv_file:
     reader = csv.DictReader(csv_file)
     for ordered_dict in reader:
         products.append(dict(ordered_dict))
-
-#
-# HANDLE USER INPUT
-#
 
 def list_products():
     print("LISTING PRODUCTS HERE")
@@ -71,7 +66,7 @@ menu = """
 -----------------------------------
 PRODUCTS APPLICATION
 -----------------------------------
-Welcome {0}!
+Welcome to the Products App!
 There are {1} products in the database.
     operation | description
     --------- | ------------------
@@ -96,10 +91,6 @@ elif crud_operation.title() == "Destroy":
     destroy_product()
 else:
     print("OOPS SORRY. PLEASE TRY AGAIN.")
-
-#
-# WRITE PRODUCTS TO FILE
-#
 
 with open(products_csv, "w") as csv_file:
     writer = csv.DictWriter(csv_file, fieldnames=headers)
